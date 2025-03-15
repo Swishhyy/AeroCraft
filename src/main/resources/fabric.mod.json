@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "aerocraft",
+	"version": "${version}",
+	"name": "AeroCraft",
+	"description": "A Fabric Mod that reworks Bows and Arrows within Minecraft",
+	"authors": [
+		"Swishhyy"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/aerocraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"swishhyy.aerocraft.AeroCraft"
+		],
+		"fabric-datagen": [
+			"swishhyy.aerocraft.AeroCraftDataGenerator"
+		],
+		"client": [
+			"swishhyy.aerocraft.AeroCraftClient"
+		]
+	},
+	"mixins": [
+		"aerocraft.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
