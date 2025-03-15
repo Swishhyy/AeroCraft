@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import swishhyy.aerocraft.AeroCraft;
 
 public class ModItems {
+
     // Arrows
     public static final Item WOODEN_ARROW = registerItem("wooden_arrow", new Item(new Item.Settings()));
     public static final Item STONE_ARROW = registerItem("stone_arrow", new Item(new Item.Settings()));
@@ -28,7 +29,7 @@ public class ModItems {
     public static void registerModItems() {
         AeroCraft.LOGGER.info("Registering Mod Items for " + AeroCraft.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(WOODEN_ARROW);
             entries.add(STONE_ARROW);
             entries.add(IRON_ARROW);
