@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import swishhyy.aerocraft.Item.ModItems;
 
 public class AeroCraft implements ModInitializer {
 	public static final String MOD_ID = "aerocraft";
@@ -11,8 +12,6 @@ public class AeroCraft implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
-
-		LOGGER.info("Hello Fabric world!");
+		ModItems.registerModItems();
 	}
 }
