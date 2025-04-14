@@ -19,21 +19,27 @@ public class ModItems {
     // Custom arrow item class
     public static class CustomArrowItem extends ArrowItem {
         private final float damageModifier;
+        private final boolean lightweight;
 
-        public CustomArrowItem(Settings settings, float damageModifier) {
+        public CustomArrowItem(Settings settings, float damageModifier, boolean lightweight) {
             super(settings);
             this.damageModifier = damageModifier;
+            this.lightweight = lightweight;
+        }
+
+        public CustomArrowItem(Settings settings, float damageModifier) {
+            this(settings, damageModifier, false);
         }
 
         @Override
         public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter) {
-            CustomArrowEntity arrow = new CustomArrowEntity(world, shooter, damageModifier);
+            CustomArrowEntity arrow = new CustomArrowEntity(world, shooter, damageModifier, lightweight);
             arrow.setArrowStack(stack);
             return arrow;
         }
     }
 
-    // Arrow items
+    // Regular arrow items
     public static final Item WOODEN_ARROW = new CustomArrowItem(new Item.Settings(), 0.8f);
     public static final Item STONE_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
     public static final Item IRON_ARROW = new CustomArrowItem(new Item.Settings(), 1.2f);
@@ -43,10 +49,21 @@ public class ModItems {
     public static final Item FLINT_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
     public static final Item QUARTZ_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
 
+    // Lightweight arrow items
+    public static final Item LIGHTWEIGHT_WOODEN_ARROW = new CustomArrowItem(new Item.Settings(), 0.7f, true);
+    public static final Item LIGHTWEIGHT_STONE_ARROW = new CustomArrowItem(new Item.Settings(), 0.9f, true);
+    public static final Item LIGHTWEIGHT_IRON_ARROW = new CustomArrowItem(new Item.Settings(), 1.1f, true);
+    public static final Item LIGHTWEIGHT_GOLD_ARROW = new CustomArrowItem(new Item.Settings(), 1.4f, true);
+    public static final Item LIGHTWEIGHT_DIAMOND_ARROW = new CustomArrowItem(new Item.Settings(), 1.8f, true);
+    public static final Item LIGHTWEIGHT_NETHERITE_ARROW = new CustomArrowItem(new Item.Settings(), 2.3f, true);
+    public static final Item LIGHTWEIGHT_FLINT_ARROW = new CustomArrowItem(new Item.Settings(), 0.9f, true);
+    public static final Item LIGHTWEIGHT_QUARTZ_ARROW = new CustomArrowItem(new Item.Settings(), 0.9f, true);
+
     // Registration code
     public static void registerItems() {
         AeroCraft.LOGGER.info("Registering mod items for " + AeroCraft.MOD_ID);
 
+        // Register regular arrows
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "wooden_arrow"), WOODEN_ARROW);
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "stone_arrow"), STONE_ARROW);
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "iron_arrow"), IRON_ARROW);
@@ -55,6 +72,16 @@ public class ModItems {
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "netherite_arrow"), NETHERITE_ARROW);
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "flint_arrow"), FLINT_ARROW);
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "quartz_arrow"), QUARTZ_ARROW);
+
+        // Register lightweight arrows
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_wooden_arrow"), LIGHTWEIGHT_WOODEN_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_stone_arrow"), LIGHTWEIGHT_STONE_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_iron_arrow"), LIGHTWEIGHT_IRON_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_gold_arrow"), LIGHTWEIGHT_GOLD_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_diamond_arrow"), LIGHTWEIGHT_DIAMOND_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_netherite_arrow"), LIGHTWEIGHT_NETHERITE_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_flint_arrow"), LIGHTWEIGHT_FLINT_ARROW);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "lightweight_quartz_arrow"), LIGHTWEIGHT_QUARTZ_ARROW);
     }
 
     public static void registerItemGroup() {
@@ -67,6 +94,7 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.aerocraft"))
             .icon(() -> new ItemStack(DIAMOND_ARROW))
             .entries((context, entries) -> {
+                // Regular arrows
                 entries.add(WOODEN_ARROW);
                 entries.add(STONE_ARROW);
                 entries.add(IRON_ARROW);
@@ -75,6 +103,16 @@ public class ModItems {
                 entries.add(NETHERITE_ARROW);
                 entries.add(FLINT_ARROW);
                 entries.add(QUARTZ_ARROW);
+
+                // Lightweight arrows
+                entries.add(LIGHTWEIGHT_WOODEN_ARROW);
+                entries.add(LIGHTWEIGHT_STONE_ARROW);
+                entries.add(LIGHTWEIGHT_IRON_ARROW);
+                entries.add(LIGHTWEIGHT_GOLD_ARROW);
+                entries.add(LIGHTWEIGHT_DIAMOND_ARROW);
+                entries.add(LIGHTWEIGHT_NETHERITE_ARROW);
+                entries.add(LIGHTWEIGHT_FLINT_ARROW);
+                entries.add(LIGHTWEIGHT_QUARTZ_ARROW);
             })
             .build();
 }
