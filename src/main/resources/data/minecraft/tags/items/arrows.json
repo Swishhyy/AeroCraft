@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "aerocraft:wooden_arrow",
+    "aerocraft:stone_arrow",
+    "aerocraft:iron_arrow",
+    "aerocraft:gold_arrow",
+    "aerocraft:diamond_arrow",
+    "aerocraft:netherite_arrow",
+    "aerocraft:flint_arrow",
+    "aerocraft:quartz_arrow"
+  ]
+}
