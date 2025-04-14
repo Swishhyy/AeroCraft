@@ -29,6 +29,7 @@ public class AeroCraftDataGenerator implements DataGeneratorEntrypoint {
 			translationBuilder.add(ModItems.NETHERITE_ARROW, "Netherite Arrow");
 			translationBuilder.add(ModItems.FLINT_ARROW, "Flint Arrow");
 			translationBuilder.add(ModItems.QUARTZ_ARROW, "Quartz Arrow");
+			translationBuilder.add("itemGroup.aerocraft", "AeroCraft");
 
 			// You can add more translations for other items, blocks, or entities here
 		}

@@ -1,12 +1,15 @@
 package swishhyy.aerocraft.item;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import swishhyy.aerocraft.AeroCraft;
@@ -53,4 +56,25 @@ public class ModItems {
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "flint_arrow"), FLINT_ARROW);
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "quartz_arrow"), QUARTZ_ARROW);
     }
+
+    public static void registerItemGroup() {
+        Registry.register(Registries.ITEM_GROUP,
+                new Identifier(AeroCraft.MOD_ID, "arrows"),
+                ARROW_GROUP);
+    }
+
+    public static final ItemGroup ARROW_GROUP = FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.aerocraft"))
+            .icon(() -> new ItemStack(DIAMOND_ARROW))
+            .entries((context, entries) -> {
+                entries.add(WOODEN_ARROW);
+                entries.add(STONE_ARROW);
+                entries.add(IRON_ARROW);
+                entries.add(GOLD_ARROW);
+                entries.add(DIAMOND_ARROW);
+                entries.add(NETHERITE_ARROW);
+                entries.add(FLINT_ARROW);
+                entries.add(QUARTZ_ARROW);
+            })
+            .build();
 }

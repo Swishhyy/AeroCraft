@@ -38,3 +38,15 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# Fabric mod specific
+*.log
+*.log.gz
+.cache/
+src/main/generated/
+**/generated/
+build/generated/
+logs/
+crash-reports/
+options.txt
+usercache.json

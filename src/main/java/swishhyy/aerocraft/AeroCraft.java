@@ -21,5 +21,6 @@ public class AeroCraft implements ModInitializer {
 
 		ModItems.registerItems();
 		ModEntityTypes.registerEntities();
+		ModItems.registerItemGroup();
 	}
 }
