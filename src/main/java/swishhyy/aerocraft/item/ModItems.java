@@ -38,6 +38,15 @@ public class ModItems {
             return arrow;
         }
     }
+    // Arrow Heads
+    public static final Item WOODEN_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item STONE_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item IRON_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item GOLD_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item DIAMOND_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item NETHERITE_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item FLINT_ARROW_HEAD = new Item(new Item.Settings());
+    public static final Item QUARTZ_ARROW_HEAD = new Item(new Item.Settings());
 
     // Regular arrow items
     public static final Item WOODEN_ARROW = new CustomArrowItem(new Item.Settings(), 0.8f);
@@ -62,6 +71,15 @@ public class ModItems {
     // Registration code
     public static void registerItems() {
         AeroCraft.LOGGER.info("Registering mod items for " + AeroCraft.MOD_ID);
+        // Register arrow heads
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "wooden_arrow_head"), WOODEN_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "stone_arrow_head"), STONE_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "iron_arrow_head"), IRON_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "gold_arrow_head"), GOLD_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "diamond_arrow_head"), DIAMOND_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "netherite_arrow_head"), NETHERITE_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "flint_arrow_head"), FLINT_ARROW_HEAD);
+        Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "quartz_arrow_head"), QUARTZ_ARROW_HEAD);
 
         // Register regular arrows
         Registry.register(Registries.ITEM, new Identifier(AeroCraft.MOD_ID, "wooden_arrow"), WOODEN_ARROW);
@@ -94,6 +112,16 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.aerocraft"))
             .icon(() -> new ItemStack(DIAMOND_ARROW))
             .entries((context, entries) -> {
+                // Arrow Heads
+                entries.add(WOODEN_ARROW_HEAD);
+                entries.add(STONE_ARROW_HEAD);
+                entries.add(IRON_ARROW_HEAD);
+                entries.add(GOLD_ARROW_HEAD);
+                entries.add(DIAMOND_ARROW_HEAD);
+                entries.add(NETHERITE_ARROW_HEAD);
+                entries.add(FLINT_ARROW_HEAD);
+                entries.add(QUARTZ_ARROW_HEAD);
+
                 // Regular arrows
                 entries.add(WOODEN_ARROW);
                 entries.add(STONE_ARROW);

@@ -105,14 +105,14 @@ public class ModEntityTypes {
         Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "quartz_arrow"), QUARTZ_ARROW);
 
         // Lightweight arrows
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_wooden_arrow"), WOODEN_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_stone_arrow"), STONE_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_iron_arrow"), IRON_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_gold_arrow"), GOLD_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_diamond_arrow"), DIAMOND_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_netherite_arrow"), NETHERITE_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_flint_arrow"), FLINT_ARROW);
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_quartz_arrow"), QUARTZ_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_wooden_arrow"), LIGHTWEIGHT_WOODEN_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_stone_arrow"), LIGHTWEIGHT_STONE_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_iron_arrow"), LIGHTWEIGHT_IRON_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_gold_arrow"), LIGHTWEIGHT_GOLD_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_diamond_arrow"), LIGHTWEIGHT_DIAMOND_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_netherite_arrow"), LIGHTWEIGHT_NETHERITE_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_flint_arrow"), LIGHTWEIGHT_FLINT_ARROW);
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(AeroCraft.MOD_ID, "lightweight_quartz_arrow"), LIGHTWEIGHT_QUARTZ_ARROW);
 
     }
 }
