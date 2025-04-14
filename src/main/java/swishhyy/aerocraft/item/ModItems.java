@@ -1,7 +1,6 @@
 package swishhyy.aerocraft.item;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
@@ -12,38 +11,36 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import swishhyy.aerocraft.AeroCraft;
 import swishhyy.aerocraft.entity.CustomArrowEntity;
-import swishhyy.aerocraft.entity.ModEntityTypes;
 
 public class ModItems {
     // Custom arrow item class
     public static class CustomArrowItem extends ArrowItem {
         private final float damageModifier;
-        private final EntityType<CustomArrowEntity> entityType;
 
-        public CustomArrowItem(Settings settings, float damageModifier, EntityType<CustomArrowEntity> entityType) {
+        public CustomArrowItem(Settings settings, float damageModifier) {
             super(settings);
             this.damageModifier = damageModifier;
-            this.entityType = entityType;
         }
 
         @Override
         public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter) {
-            return new CustomArrowEntity(entityType, world, shooter, damageModifier);
+            CustomArrowEntity arrow = new CustomArrowEntity(world, shooter, damageModifier);
+            arrow.setArrowStack(stack);
+            return arrow;
         }
     }
 
-    // Arrow items (replace the current declarations)
-    public static final Item WOODEN_ARROW = new CustomArrowItem(new Item.Settings(), 0.8f, ModEntityTypes.WOODEN_ARROW);
-    public static final Item STONE_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f, ModEntityTypes.STONE_ARROW);
-    public static final Item IRON_ARROW = new CustomArrowItem(new Item.Settings(), 1.2f, ModEntityTypes.IRON_ARROW);
-    public static final Item GOLD_ARROW = new CustomArrowItem(new Item.Settings(), 1.5f, ModEntityTypes.GOLD_ARROW);
-    public static final Item DIAMOND_ARROW = new CustomArrowItem(new Item.Settings(), 2.0f, ModEntityTypes.DIAMOND_ARROW);
-    public static final Item NETHERITE_ARROW = new CustomArrowItem(new Item.Settings(), 2.5f, ModEntityTypes.NETHERITE_ARROW);
-    public static final Item FLINT_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f, ModEntityTypes.FLINT_ARROW);
-    public static final Item QUARTZ_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f, ModEntityTypes.QUARTZ_ARROW);
-    // Update the other arrow definitions similarly
+    // Arrow items
+    public static final Item WOODEN_ARROW = new CustomArrowItem(new Item.Settings(), 0.8f);
+    public static final Item STONE_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
+    public static final Item IRON_ARROW = new CustomArrowItem(new Item.Settings(), 1.2f);
+    public static final Item GOLD_ARROW = new CustomArrowItem(new Item.Settings(), 1.5f);
+    public static final Item DIAMOND_ARROW = new CustomArrowItem(new Item.Settings(), 2.0f);
+    public static final Item NETHERITE_ARROW = new CustomArrowItem(new Item.Settings(), 2.5f);
+    public static final Item FLINT_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
+    public static final Item QUARTZ_ARROW = new CustomArrowItem(new Item.Settings(), 1.0f);
 
-    // The registration code stays the same
+    // Registration code
     public static void registerItems() {
         AeroCraft.LOGGER.info("Registering mod items for " + AeroCraft.MOD_ID);
 
